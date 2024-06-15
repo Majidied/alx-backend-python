@@ -2,18 +2,18 @@
 """
 This module contains the function element_length.
 """
-from typing import Sequence, Union, Any, List, Tuple
+from typing import Iterable, Sequence, List, Tuple
 
 
-def element_length(lst: Sequence[Union[Any, Any]]) -> List[Tuple[Any, int]]:
+def element_length(lst: Iterable[Sequence]) -> List[Tuple[Sequence, int]]:
     """
     Returns a list of tuples of the elements and their lengths.
 
     Args:
-        lst (Sequence[Union[Any, Any]]): The list of elements to return.
+        lst (Iterable[Sequence]): The list of elements to return.
 
     Returns:
-        List[Tuple[Any, int]]: The list of tuples of the elements and their
-        lengths.
+        List[Tuple[Sequence, int]]: The list of tuples of the elements
+        and their lengths.
     """
     return [(i, len(i)) for i in lst]
