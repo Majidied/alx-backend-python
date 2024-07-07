@@ -21,7 +21,8 @@ class TestGithubOrgClient(unittest.TestCase):
         """test_org method"""
         test_class = GithubOrgClient(org_name)
         test_class.org()
-        mock_get_json.assert_called_once_with(f"https://api.github.com/orgs/{org_name}")
+        mock_get_json.assert_called_once_with(
+            f"https://api.github.com/orgs/{org_name}")
 
     @parameterized.expand(
         [
@@ -32,10 +33,12 @@ class TestGithubOrgClient(unittest.TestCase):
     @patch("client.GithubOrgClient.org", new_callable=PropertyMock)
     def test_public_repos_url(self, org_name, expected, mock_org):
         """test_public_repos_url method"""
-        mock_org.return_value = {expected: f"https://api.github.com/users/{org_name}"}
+        mock_org.return_value = {
+            expected: f"https://api.github.com/users/{org_name}"}
         test_class = GithubOrgClient(org_name)
         self.assertEqual(
-            test_class._public_repos_url, f"https://api.github.com/users/{org_name}"
+            test_class._public_repos_url,
+            f"https://api.github.com/users/{org_name}"
         )
 
     @patch("client.get_json")
