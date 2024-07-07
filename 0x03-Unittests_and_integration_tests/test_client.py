@@ -3,6 +3,7 @@
 
 import unittest
 from parameterized import parameterized, parameterized_class
+from requests import HTTPError
 from client import GithubOrgClient
 from fixtures import TEST_PAYLOAD
 from unittest.mock import MagicMock, patch, Mock, PropertyMock
